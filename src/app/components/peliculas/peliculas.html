@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="text-center bg-dark text-white p-2">Lista de películas</h1>
+  <div class="container bg-dark p-2 d-flex flex-wrap justify-content-center">
+  @for (pelicula of peliculasResource.value(); track pelicula.episodeId) {
+  <div class="col-md-4 mb-4 p-2">
+    <div class="card bg-secondary text-white h-100">
+      
+      <img 
+        [src]="pelicula.interestingMoment._342x192.webp.value.url" 
+        class="card-img-top" 
+        [alt]="pelicula.title">
+      
+      <div class="card-body">
+        <h5 class="card-title">{{ pelicula.title }}</h5>
+        
+        <p class="card-text">{{ pelicula.contextualSynopsis.text }}</p>
+      </div>
+      
+      <div class="card-footer">
+        <small class="text-light">
+          Temporada {{ pelicula.summary.season }} | Episodio {{ pelicula.summary.episode }}
+        </small>
+      </div>
+      
+    </div>
+  </div>
+  } @empty {
+    <p>No hay episodios para mostrar.</p>
+  }
+</div>
+
+</div>

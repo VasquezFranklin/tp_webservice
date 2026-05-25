@@ -1,0 +1,58 @@
+<div class="container mt-4">
+  <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+    <div class="card-header bg-success text-white">
+      <h5 class="mb-0">Texto a Voz (OpenAI)</h5>
+    </div>
+    
+    <div class="card-body">
+      
+      <div class="mb-3">
+        <label class="form-label fw-bold">Selecciona una voz</label>
+        <select class="form-select" [(ngModel)]="vozSeleccionada">
+          <option value="alloy">Alloy (Neutral)</option>
+          <option value="echo">Echo (Grave/Masculino)</option>
+          <option value="nova">Nova (Femenina/Dinámica)</option>
+          <option value="onyx">Onyx (Masculino/Profundo)</option>
+          <option value="fable">Fable (Narrador)</option>
+          <option value="shimmer">Shimmer (Femenina/Clara)</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">Texto a sintetizar</label>
+        <textarea 
+          class="form-control" 
+          rows="4" 
+          [(ngModel)]="texto" 
+          placeholder="Escribe el texto que deseas que la IA lea..."></textarea>
+      </div>
+
+      @if (mensajeError()) {
+        <div class="alert alert-danger mb-3">
+          {{ mensajeError() }}
+        </div>
+      }
+
+      <button 
+        class="btn btn-primary w-100 fw-bold" 
+        (click)="generarVoz()" 
+        [disabled]="cargando() || texto().length === 0">
+        @if (cargando()) {
+          <span class="spinner-border spinner-border-sm"></span> Conectando con OpenAI...
+        } @else {
+          Generar Audio
+        }
+      </button>
+
+      @if (audioUrl()) {
+        <div class="mt-4 text-center border p-3 bg-light rounded">
+          <label class="form-label d-block fw-bold text-success mb-2">¡Audio Listo!</label>
+          <audio controls class="w-100 mt-2" [src]="audioUrl()">
+            Tu navegador no soporta reproducción de audio nativa.
+          </audio>
+        </div>
+      }
+
+    </div>
+  </div>
+</div>
