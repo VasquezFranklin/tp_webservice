@@ -7,7 +7,7 @@
     </div>
   } @else if (marcasResource.error()) {
     <div class="alert alert-danger">
-      Error de API. Revisa tu x-rapidapi-key en el servicio.
+      Error de API
     </div>
   } @else {
     
@@ -23,7 +23,7 @@
           </button>
         </div>
       } @empty {
-        <p>No se encontraron marcas.</p>
+        <p>No se encontraron marcas</p>
       }
     </div>
     
@@ -44,7 +44,7 @@
         @if (cargandoModelos()) {
           <div class="text-center my-4">
             <div class="spinner-border text-primary" role="status"></div>
-            <p class="mt-2 text-muted">Consultando disponibilidad...</p>
+            <p class="mt-2 text-muted">Consultando</p>
           </div>
         } @else {
           
@@ -52,7 +52,7 @@
             @for (modelo of modelosDelModal(); track modelo.id) {
               <li class="list-group-item">{{ modelo.name }}</li>
             } @empty {
-              <li class="list-group-item text-muted">Esta marca no tiene modelos registrados.</li>
+              <li class="list-group-item text-muted">Esta marca no tiene modelos</li>
             }
           </ul>
           

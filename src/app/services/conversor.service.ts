@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ConversorResponse } from '../interfaces/conversor.interface'; // Ajusta la ruta
+import { ConversorResponse } from '../interfaces/conversor.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -16,14 +16,12 @@ export class ConversorService {
         });
     }
 
-    // Este es el método que debes implementar
     convertirDivisa(de: string, a: string, monto: number): Observable<ConversorResponse> {
 
-        // Armamos la URL final con los Query Params dinámicos
         const params = new HttpParams()
             .set('from', de)
             .set('to', a)
-            .set('amount', monto.toString()); // Convertimos el número a string para la petición HTTP
+            .set('amount', monto.toString());
 
         return this.http.get<ConversorResponse>(`${this.baseUrl}/convert`, {
             headers: this.getHeaders(),

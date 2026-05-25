@@ -2,7 +2,7 @@
   <div class="card shadow-sm mx-auto" style="max-width: 500px;">
     
     <div class="card-header bg-dark text-white">
-      <h5 class="mb-0">Generador de Código QR</h5>
+      <h5 class="mb-0">Generador de Códigos QR</h5>
     </div>
     
     <div class="card-body">
@@ -20,7 +20,7 @@
         (click)="crearQr()" 
         [disabled]="cargando() || textoIngresado().length === 0">
         @if (cargando()) {
-          <span class="spinner-border spinner-border-sm"></span> Generando...
+          <span class="spinner-border spinner-border-sm"></span> Generando
         } @else {
           Generar QR
         }
@@ -34,7 +34,7 @@
 
       @if (qrBase64()) {
         <div class="mt-4 text-center p-3 border rounded bg-light">
-          <p class="text-success fw-bold mb-2">¡Código generado con éxito!</p>
+          <p class="text-success fw-bold mb-2">código generado con éxito</p>
           <img [src]="qrBase64()" alt="Código QR Generado" class="img-fluid border shadow-sm">
         </div>
       }

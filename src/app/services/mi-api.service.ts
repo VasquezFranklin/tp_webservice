@@ -12,10 +12,9 @@ export class QrService {
     generarQr(texto: string): Observable<Blob> {
         const params = new HttpParams()
             .set('data', texto)
-            .set('size', '250x250') // Tamaño por defecto
+            .set('size', '250x250')
             .set('format', 'png');
 
-        // Retornamos un Blob porque el servidor escupe una imagen PNG cruda
         return this.http.get(this.baseUrl, {
             params: params,
             responseType: 'blob'

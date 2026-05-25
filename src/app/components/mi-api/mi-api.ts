@@ -25,10 +25,8 @@ export class QrComponent {
 
     this.qrService.generarQr(this.textoIngresado()).subscribe({
       next: (archivoImagen: Blob) => {
-        // Usamos el lector para pasar de Blob a Base64
         const reader = new FileReader();
         reader.onloadend = () => {
-          // Esto genera el string exacto que pidió tu profesor: "data:image/png;base64,..."
           this.qrBase64.set(reader.result as string);
           this.cargando.set(false);
         };
@@ -36,7 +34,7 @@ export class QrComponent {
       },
       error: (err) => {
         console.error('Error al generar QR:', err);
-        this.mensajeError.set('No se pudo generar el código QR. Revisa tu conexión.');
+        this.mensajeError.set('No se pudo generar el código QR');
         this.cargando.set(false);
       }
     });

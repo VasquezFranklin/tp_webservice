@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router'; // Necesario para el router-outlet
-import { NavbarComponent } from './components/navbar/navbar'; // Importas tu componentes
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './components/navbar/navbar';
 
 @Component({
   selector: 'app-root',
-  standalone: true, // Esto confirma que es un componente Standalone
+  standalone: true,
   imports: [
     RouterOutlet,
-    NavbarComponent, // <--- ACÁ LO AGREGÁS // <--- Y ACÁ TAMBIÉN
+    NavbarComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

@@ -13,5 +13,5 @@ export const routes: Routes = [
     { path: 'texto-a-voz', component: TextToAudioComponent },
     { path: 'mi-api', component: QrComponent },
     { path: 'menu', component: MenuComponent },
-    { path: '', redirectTo: '/menu', pathMatch: 'full' }, // Redirección por defecto
+    { path: '', redirectTo: '/menu', pathMatch: 'full' },
 ];

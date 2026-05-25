@@ -11,7 +11,7 @@ export class CarSpecsService {
     private baseUrl = 'https://car-specs.p.rapidapi.com/v2/cars';
     private getHeaders(): HttpHeaders {
         return new HttpHeaders({
-            'x-rapidapi-key': '8690b2c45cmsh70a87c0be77ca55p1f5d52jsna1a16c769e64', // Reemplaza esto
+            'x-rapidapi-key': '8690b2c45cmsh70a87c0be77ca55p1f5d52jsna1a16c769e64',
             'x-rapidapi-host': 'car-specs.p.rapidapi.com'
         });
     }

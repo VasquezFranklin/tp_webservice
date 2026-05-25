@@ -38,7 +38,7 @@
         (click)="generarVoz()" 
         [disabled]="cargando() || texto().length === 0">
         @if (cargando()) {
-          <span class="spinner-border spinner-border-sm"></span> Conectando con OpenAI...
+          <span class="spinner-border spinner-border-sm"></span> Conectando con OpenAi
         } @else {
           Generar Audio
         }
@@ -46,9 +46,9 @@
 
       @if (audioUrl()) {
         <div class="mt-4 text-center border p-3 bg-light rounded">
-          <label class="form-label d-block fw-bold text-success mb-2">¡Audio Listo!</label>
+          <label class="form-label d-block fw-bold text-success mb-2">Audio Listo</label>
           <audio controls class="w-100 mt-2" [src]="audioUrl()">
-            Tu navegador no soporta reproducción de audio nativa.
+            no soporta reproducción de audio nativa.
           </audio>
         </div>
       }

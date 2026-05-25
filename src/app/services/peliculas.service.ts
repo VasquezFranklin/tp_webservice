@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable, map } from 'rxjs'; // <-- Importa 'map' de rxjs
+import { Observable, map } from 'rxjs';
 import { PeliculasSeason, PeliculasEpisode } from '../interfaces/peliculas.interface';
 
 @Injectable({
@@ -22,9 +22,7 @@ export class PeliculasService {
             .set('limit', '25')
             .set('lang', 'en');
 
-        // Aquí indicamos que recibimos PeliculasSeason[], pero retornamos PeliculasEpisode[]
         return this.http.get<PeliculasSeason[]>(this.apiUrl, { headers, params }).pipe(
-            // flatMap junta todos los arreglos de episodios de todas las temporadas en un solo array
             map(seasons => seasons.flatMap(season => season.episodes))
         );
     }
